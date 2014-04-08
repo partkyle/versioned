@@ -1,8 +1,12 @@
 #!/bin/bash
 
+OUTPUTFILE=versioned
+
 if [[ -z $VERSION ]]; then
-  echo "You must supply a VERSION"
-  exit 1
+  VERSION=$(git describe --tags)
+  echo "VERSION not specified, using best known tagref \"$VERSION\""
 fi
 
-go build -ldflags "-X main.version $VERSION"
+go build -ldflags "-X main.version $VERSION" -o $OUTPUTFILE
+
+echo "Success! Execute using \"./$OUTPUTFILE -version\""
