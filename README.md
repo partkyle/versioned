@@ -32,3 +32,11 @@ Success! Execute using "./versioned -version"
 version: v11.0
 
 ```
+
+Try making an empty commit without a tag to see what happens!
+
+```
+~/versioned $ git commit --allow-empty -m 'this is a test'
+~/versioned $ bin/build
+~/versioned $ ./versioned -version
+```
