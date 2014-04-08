@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ -z $VERSION ]]; then
+  echo "You must supply a VERSION"
+  exit 1
+fi
+
+go build -ldflags "-X main.version $VERSION"
